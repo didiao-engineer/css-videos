@@ -1,0 +1,83 @@
+body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #3c374a;
+}
+
+.container {
+    position: relative;
+    color: #fff;
+    text-align: center;
+    font-size: 64px;
+}
+
+.container::before,
+.container::after {
+    content: attr(data-attr);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.container::before {
+    left: 3px;
+    text-shadow: -1px 0 #f00;
+    background-color: #3c374a;
+    animation: noise1 1s linear infinite alternate-reverse;
+}
+
+.container::after {
+    left: -3px;
+    text-shadow: -1px 0 #00f;
+    background-color: #3c374a;
+    animation: noise2 12s linear infinite alternate-reverse;
+}
+
+@keyframes noise1 {
+    0% {
+        clip-path: inset(45% 0 31% 0);
+    }
+    20% {
+        clip-path: inset(92% 0 2% 0);
+    }
+    40% {
+        clip-path: inset(33% 0 51% 0);
+    }
+    60% {
+        clip-path: inset(65% 0 18% 0);
+    }
+    80% {
+        clip-path: inset(24% 0 52% 0);
+    }
+    100% {
+        clip-path: inset(38% 0 27% 0);
+    }
+}
+
+@keyframes noise2 {
+    0% {
+        clip-path: inset(25% 0 41% 0);
+    }
+    20% {
+        clip-path: inset(72% 0 12% 0);
+    }
+    40% {
+        clip-path: inset(33% 0 51% 0);
+    }
+    60% {
+        clip-path: inset(65% 0 8% 0);
+    }
+    80% {
+        clip-path: inset(24% 0 62% 0);
+    }
+    100% {
+        clip-path: inset(38% 0 37% 0);
+    }
+}

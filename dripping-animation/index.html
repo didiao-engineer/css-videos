@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dripping animation</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            filter: blur(2px) contrast(10);
+        }
+        .container {
+            position: relative;
+        }
+        .pipe {
+            width: 128px;
+            height: 32px;
+            background-color: #fff;
+            position: relative;
+        }
+        .pipe::before {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            border: solid 32px;
+            border-color: #fff transparent transparent transparent;
+            left: 96px;
+            top: 0;
+            transform: rotate(45deg);
+        }
+        .pipe::after {
+            content: "";
+            position: absolute;
+            width: 32px;
+            height: 12px;
+            background-color: #fff;
+            top: 32px;
+            left: 112px;
+        }
+        .water-source {
+            width: 10px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #fff;
+            position: absolute;
+            top: 32px;
+            left: 124px;
+            animation: down 6s ease-in infinite;
+        }
+        @keyframes down {
+            36% {
+                top: 38px;
+                width: 8px;
+                height: 24px;
+                transform: translate(0, 0);
+                opacity: 1;
+            }
+            40% {
+                width: 10px;
+                height: 20px;
+                transform: translate(0, 112px);
+                opacity: 1;
+            }
+            41% {
+                width: 10px;
+                height: 20px;
+                opacity: 0;
+            }
+            100% {
+                transform: translate(0, 112px);
+                opacity: 0;
+            }
+        }
+        .pole {
+            width: 300px;
+            height: 112px;
+            border-bottom: solid 12px #fff;
+            padding-bottom: 12px;
+            position: relative;
+            left: 124px;
+            transform: skewY(5deg);
+        }
+        .pole::before {
+            width: 0;
+            height: 0;
+            content: "";
+            position: absolute;
+            border-radius: 50%;
+            background-color: #fff;
+            left: 0;
+            transform: translate(0, 0);
+            animation: move 6s ease-out infinite;
+        }
+        @keyframes move {
+            40% {
+                width: 0;
+                height: 0;
+            }
+            41% {
+                width: 10px;
+                height: 20px;
+                bottom: -20px;
+                transform: translate(0, 0);
+            }
+            80% {
+                width: 8px;
+                height: 24px;
+                bottom: -25px;
+                transform: translate(289px, 0);
+            }
+            95% {
+                width: 8px;
+                height: 24px;
+                bottom: -25px;
+                transform: translate(289px, 10px);
+                opacity: 1;
+            }
+            100% {
+                width: 10px;
+                height: 20px;
+                bottom: -25px;
+                transform: translate(289px, 300px);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="pipe">
+            <div class="water-source"></div>
+        </div>
+        <div class="pole"></div>
+    </div>
+</body>
+</html>

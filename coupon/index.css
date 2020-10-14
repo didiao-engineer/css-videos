@@ -1,0 +1,79 @@
+body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #3c374a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.coupon {
+    position: relative;
+    width: 600px;
+    height: 240px;
+    background: radial-gradient(
+        circle at 1px 8px,
+        transparent 6px,
+        #f71c1c 6px
+    ), radial-gradient(
+        circle at 298px 8px,
+        transparent 6px,
+        #f71c1c 6px
+    );
+    background-size: 300px 18px;
+    background-position: 0 0, 300px 0;
+    background-repeat: repeat-y;
+    font-size: 24px;
+    color: #fff;
+    font-weight: bold;
+    line-height: 240px;
+    padding-left: 30px;
+    box-sizing: border-box;
+}
+
+.coupon::before {
+    content: "";
+    position: absolute;
+    left: 70%;
+    top: 0;
+    bottom: 0;
+    border-width: 0;
+    border-left: dashed 1px #fff;
+}
+
+.coupon::after {
+    content: "立即领取";
+    position: absolute;
+    font-size: 32px;
+    width: 76px;
+    top: 50%;
+    right: 2%;
+    transform: translate(-50%, -50%);
+    line-height: 40px;
+    letter-spacing: 6px;
+}
+
+.money {
+    position: relative;
+    width: 70%;
+    height: 100%;
+    font-size: 64px;
+    top: -10%;
+}
+
+.money::before {
+    content: "¥";
+    font-size: 32px;
+}
+
+.money::after {
+    content: "无门槛使用（省着点花啊）";
+    position: absolute;
+    font-size: 18px;
+    width: 100%;
+    top: 25%;
+    left: 0;
+    text-align: center;
+}

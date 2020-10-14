@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tiktok style</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #000;
+        }
+        .container {
+            position: relative;
+            width: 512px;
+            height: 512px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .tiktok1,
+        .tiktok2 {
+            position: absolute;
+            color: #00faf0;
+            font-size: 156px;
+            font-weight: bold;
+        }
+        .tiktok2 {
+            color: #ff0050;
+            transform: translate(6px, 6px);
+            mix-blend-mode: lighten;
+            animation: shake .6s linear infinite;
+        }
+        @keyframes shake {
+            33% {
+                transform: translate(6px, 6px);
+            }
+            66% {
+                transform: translate(-6px, 6px);
+            }
+            100% {
+                transform: translate(0, 0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="tiktok1">My Tiktok</div>
+        <div class="tiktok2">My Tiktok</div>
+    </div>
+</body>
+</html>

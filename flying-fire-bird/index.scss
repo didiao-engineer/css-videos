@@ -1,0 +1,56 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000;
+}
+
+.bird {
+    background-color: #c78409;
+    width: 264px;
+    height: 375px;
+    background-image: url("bird.svg");
+    background-size: auto 100%;
+    position: relative;
+    filter: blur(2px) contrast(16);
+    animation: flying 1s steps(10) infinite;
+}
+
+@keyframes flying {
+    100% {
+        background-position: -2700px 0;
+    }
+}
+
+@function randomNum($max,
+$min: 0) {
+    @return ($min+random($max));
+}
+
+@for $i from 1 to 201 {
+    .fire-balls:nth-child(#{$i}) {
+        position: absolute;
+        left: #{randomNum(160, 40)}px;
+        bottom: #{randomNum(75, 50)}px;
+        background-color: #c78409;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        animation: move #{randomNum(16,3) / 10}s linear #{randomNum(20)/ 10}s infinite;
+    }
+}
+
+@keyframes move {
+    100% {
+        transform: translateY(-150px);
+        opacity: 0;
+    }
+}
